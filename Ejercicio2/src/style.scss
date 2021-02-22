@@ -1,0 +1,39 @@
+@import './themes/themeA';
+
+.container {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    .box {
+        width: 5rem;
+        height: 3rem;
+        padding: 0.5rem;
+        border: 1px solid grey;
+        font-family: sans-serif;
+        border-radius: $border-radius;
+
+        &.base-box {
+            background-color: $base-color;
+        }
+
+        &.important-box {
+            background-color: $important-color;
+        }
+
+        &.warning-box {
+            background-color: $warning-color;
+        }
+
+        &.shadow-box {
+            box-shadow: $box-shadow;
+        }
+    }
+
+    .principal-text {
+        font-family: $principal-font;
+    }
+
+    .secondary-text {
+        font-family: $secondary-font;
+    }
+}

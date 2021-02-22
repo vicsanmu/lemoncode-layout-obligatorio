@@ -1,0 +1,33 @@
+body {
+    padding: 8px;
+
+    .nav-bar {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 50%;
+        background-color: rgb(0, 117, 128);
+
+        .bar-element {
+            color: white;
+            padding: 8px;
+
+            &:hover {
+                background-color: rgb(0, 70, 77);
+                cursor: pointer;
+            }
+        }
+    }
+
+    @media (max-width: 700px) {
+        .nav-bar {
+            flex-direction: column;
+            justify-content: stretch;
+            width: 100%;
+
+            .bar-element {
+                text-align: center;
+            }
+        }
+    }
+}

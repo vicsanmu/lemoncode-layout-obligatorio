@@ -1,0 +1,66 @@
+$color1: red;
+$color2: blue;
+$color3: green;
+$grey: grey;
+$white: white;
+
+@function color($index) {
+    @if $index == 1 {
+        @return $color1;
+    } @else if $index == 2 {
+        @return $color2;
+    } @else {
+        @return $color3;
+    }
+}
+
+@mixin color-boxes($number-of-colors) {
+    @for $i from 1 to ($number-of-colors + 1) {
+        .container-#{$i} {
+            $color-container: color($i);
+            display: grid;
+            width: 90vw;
+            height: 6rem;
+            grid-template-columns: repeat(4, 1fr) 2fr repeat(4, 1fr);
+            gap: 0.5rem;
+            padding-bottom: 0.5rem;
+    
+            .box {
+                width: 100%;
+                text-align: center;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 0.5em/0.5em;
+                color: $grey;
+    
+                @for $y from 1 to 5 {
+                    $color-scale: $y * 5%;
+    
+                    &.darken-#{$y} {
+                        background-color: darken($color-container, $color-scale);
+                    }
+    
+                    &.lighten-#{$y} {
+                        background-color: lighten($color-container, $color-scale);
+                    }
+    
+                }
+        
+                &.base-color {
+                    background-color: $color-container;
+    
+                    .color-box-text {
+                        color: $white;
+                    }
+                }
+            }
+        }
+    }
+}
+
+body {
+    @include color-boxes(3);
+}
+
+
